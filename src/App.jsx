@@ -12,6 +12,8 @@ import Mentalwellness from "./pages/MentalWellness";
 import WeeklySummary from "./pages/WeeklySummary";
 import TrainerDashboard from "./pages/TrainerDashboard";
 import WorkoutTracker from "./pages/WorkoutTracker";
+import BMICalculator from "./pages/BMICalculator";
+import AdminDashboard from "./pages/AdminDashboard";
 
 // ==================== Navbar Component ====================
 function Navbar({ isLoggedIn, setIsLoggedIn }) {
@@ -122,7 +124,8 @@ function App() {
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <div style={styles.content}>
-        <Routes>
+        167
+        s>
 
           {/* Public */}
           <Route path="/" element={<Home />} />
@@ -161,8 +164,21 @@ function App() {
             path="/trainer-dashboard"
             element={isLoggedIn && role === "TRAINER" ? <TrainerDashboard /> : <Navigate to="/login" />}
           />
+        
+      {/* BMI Calculator - Week 5 */}
+      <Route
+        path="/bmi-calculator"
+        element={isLoggedIn && role === "USER" ? <BMICalculator /> : <Navigate to="/login" />}
+      />
 
-        </Routes>
+      {/* Admin Dashboard */}
+      <Route
+        path="/admin"
+        element={isLoggedIn && role === "ADMIN" ? <AdminDashboard /> : <Navigate to="/login" />}
+      />
+
+        95
+          
       </div>
 
       <Footer />
